@@ -1,12 +1,14 @@
 import React from "react";
 import Button from "../../button/Button";
 
-const FormCreateMovie = ({ addMovie }) => {
+const FormCreateMovie = ({ addMovie, updateMovie, currMovie={} }) => {
+  console.log({ currMovie });
+
   const [values, setValues] = React.useState({
-    // title: "Movie Title",
-    // posterImage: "poster_matrix_resurrection.jpg",
-    // description: "Description of the movie",
-    // releaseDate: "2020-01-01",
+    title: currMovie.title || "",
+    posterImage: currMovie.posterImage || "",
+    description: currMovie.description || "",
+    releaseDate: currMovie.releaseDate || "",
   });
 
   const createMovie = (event) => {
@@ -17,7 +19,11 @@ const FormCreateMovie = ({ addMovie }) => {
       description: values.description,
       releaseDate: values.releaseDate,
     };
-    addMovie(movie);
+    if (addMovie != null) {
+      addMovie(movie);
+    } else {
+      updateMovie(movie);
+    }
   };
 
   const handleInputChange = (event) => {
@@ -28,7 +34,7 @@ const FormCreateMovie = ({ addMovie }) => {
 
   return (
     <div>
-      <h3>Add Movie Form</h3>
+      <h3>{addMovie ? "Add" : "Edit"} Movie Form</h3>
       <form onSubmit={createMovie}>
         <input
           type="text"
@@ -58,7 +64,7 @@ const FormCreateMovie = ({ addMovie }) => {
           onChange={handleInputChange}
         />
 
-        <Button type="submit">Add Movie</Button>
+        <Button type="submit">{addMovie ? "Add" : "Update"} Movie</Button>
       </form>
     </div>
   );

@@ -10,10 +10,10 @@ import useToggle from "../../hooks/useToggle";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [loggedin, setLoggedin] = useToggle(true);
+  const [loggedin, setLoggedin] = useToggle(false);
   const [loading, setLoading] = useToggle(true);
   const [error, setError] = React.useState("");
-  const { get, post } = useFetch("/api/movies");
+  const { get, post, put } = useFetch("/api/movies");
 
   /* eslint-disable react-hooks/exhaustive-deps */
   React.useEffect(() => {
@@ -30,6 +30,13 @@ function App() {
   const addMovie = (movie) => {
     post("/api/movies", movie).then((data) => {
       setMovies([data, ...movies]);
+    });
+  };
+
+  const updateMovie = (movie) => {
+    // Update movie by putting it to the server
+    put("/api/movies", movie).then((data) => {
+      setMovies(movies.map((m) => (m._id === data._id ? data : m)));
     });
   };
 
@@ -52,7 +59,17 @@ function App() {
               <Movies movies={movies} loggedin={loggedin} addMovie={addMovie} />
             }
           />
-          <Route path="/:movieId" element={<MovieDetail movies={movies} />} />
+          <Route
+            path="/:movieId"
+            loggedin={loggedin}
+            element={
+              <MovieDetail
+                loggedin={loggedin}
+                movies={movies}
+                updateMovie={updateMovie}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </main>
