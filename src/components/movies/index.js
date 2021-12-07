@@ -1,6 +1,6 @@
 import React from "react";
-import Movie from "./Movie";
-import FormCreateMovie from "./FormCreateMovie";
+import Movie from "../movie";
+import FormCreateMovie from "../formCreateMovie";
 
 function Movies({ movies, loggedin, addMovie }) {
   return (

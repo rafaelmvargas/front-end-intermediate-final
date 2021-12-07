@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Button from "./button/Button.js";
+import Button from "../../button/Button.js";
 
 const NavStyles = styled.nav`
   --bg-color: var(--corp-blue);

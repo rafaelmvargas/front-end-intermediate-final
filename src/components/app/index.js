@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Movies from "./Movies";
-import MovieDetail from "./MovieDetail";
-import Nav from "./Nav";
+import Movies from "../movies";
+import MovieDetail from "../moviedetail";
+import Nav from "../nav";
 
-import useFetch from "./hooks/useFetch";
-import useToggle from "./hooks/useToggle";
+import useFetch from "../../hooks/useFetch";
+import useToggle from "../../hooks/useToggle";
 
 function App() {
   const [movies, setMovies] = useState([]);
