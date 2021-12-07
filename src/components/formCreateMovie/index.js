@@ -3,9 +3,10 @@ import Button from "../../button/Button";
 
 const FormCreateMovie = ({ addMovie }) => {
   const [values, setValues] = React.useState({
-    title: "Movie Title",
-    posterImage: "poster_matrix_resurrection.jpg",
-    description: "Description of the movie",
+    // title: "Movie Title",
+    // posterImage: "poster_matrix_resurrection.jpg",
+    // description: "Description of the movie",
+    // releaseDate: "2020-01-01",
   });
 
   const createMovie = (event) => {
@@ -52,7 +53,7 @@ const FormCreateMovie = ({ addMovie }) => {
         <input
           type="text"
           placeholder="Rlease date (YYYY-MM-DD)"
-          value={values.year}
+          value={values.releaseDate}
           name="releaseDate"
           onChange={handleInputChange}
         />

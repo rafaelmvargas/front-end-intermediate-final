@@ -3,10 +3,11 @@
   --corp-btn: #03628d;
   --corp-bg-dark: #131516;
   --corp-bg-main: #212527;
-  --corp-bg-card: #0E1223;
+  --corp-bg-card: #0e1223;
   /* --movie-bg: #141a32; */
   /* --movie-bg: #4c4c4c; */
   --movie-bg: #131516;
+  --btn-color: #141a32;
 }
 
 body {
