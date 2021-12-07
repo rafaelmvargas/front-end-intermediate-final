@@ -7,7 +7,7 @@ function Movies({ movies, loggedin, addMovie }) {
     <summary>
       {loggedin && <FormCreateMovie addMovie={addMovie} />}
       {movies.map((movie) => (
-        <Movie key={movie._id} recipe={movie} />
+        <Movie key={movie._id} movie={movie} />
       ))}
     </summary>
   );

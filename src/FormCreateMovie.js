@@ -14,7 +14,7 @@ const FormCreateMovie = ({ addMovie }) => {
       title: values.title,
       image: values.image,
       description: values.description,
-      year: values.year,
+      releaseDate: values.releaseDate,
     };
     addMovie(movie);
   };
@@ -51,9 +51,9 @@ const FormCreateMovie = ({ addMovie }) => {
         />
         <input
           type="text"
-          placeholder="Movie year"
+          placeholder="Rlease date (YYYY-MM-DD)"
           value={values.year}
-          name="year"
+          name="releaseDate"
           onChange={handleInputChange}
         />
 
