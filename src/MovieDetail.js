@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-function RecipeDetail(props) {
-  const { recipeId } = useParams();
-  const currRecipe = props.recipes.filter((recipe) => recipe._id === recipeId);
-  const {image, title, description} = { ...currRecipe[0] };
+function MovieDetail(props) {
+  const { movieId } = useParams();
+  const currMovie = props.movies.filter((movie) => movie._id === movieId);
+  const { image, title, description } = { ...currMovie[0] };
 
   return (
     <div>
@@ -16,4 +16,4 @@ function RecipeDetail(props) {
   );
 }
 
-export default RecipeDetail;
+export default MovieDetail;

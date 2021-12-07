@@ -1,35 +1,35 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Recipes from "./Recipes";
-import RecipeDetail from "./RecipeDetail";
+import Movies from "./Movies";
+import MovieDetail from "./MovieDetail";
 import Nav from "./Nav";
 
 import useFetch from "./hooks/useFetch";
 import useToggle from "./hooks/useToggle";
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [loggedin, setLoggedin] = useToggle(true);
   const [loading, setLoading] = useToggle(true);
   const [error, setError] = React.useState("");
-  const { get, post } = useFetch("/api/recipes");
+  const { get, post } = useFetch("/api/movies");
 
   /* eslint-disable react-hooks/exhaustive-deps */
   React.useEffect(() => {
     setLoading(true);
-    get("/api/recipes")
+    get("/api/movies")
       .then((data) => {
-        setRecipes(data);
+        setMovies(data);
         setLoading(false);
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
 
-  const addRecipe = (recipe) => {
-    post("/api/recipes", recipe).then((data) => {
-      setRecipes([data, ...recipes]);
+  const addMovie = (movie) => {
+    post("/api/movies", movie).then((data) => {
+      setMovies([data, ...movies]);
     });
   };
 
@@ -49,16 +49,16 @@ function App() {
           <Route
             path="/"
             element={
-              <Recipes
-                recipes={recipes}
+              <Movies
+                movies={movies}
                 loggedin={loggedin}
-                addRecipe={addRecipe}
+                addMovie={addMovie}
               />
             }
           />
           <Route
-            path="/:recipeId"
-            element={<RecipeDetail recipes={recipes} />}
+            path="/:movieId"
+            element={<MovieDetail movies={movies} />}
           />
         </Routes>
       </BrowserRouter>

@@ -35,7 +35,7 @@ const Nav = ({ loggedin, setLoggedin }) => {
   return (
     <NavStyles>
       <h1>
-        <Link to="/">Recipes</Link>
+        <Link to="/">Movies</Link>
       </h1>
       {loggedin ? (
         <Button func={() => setLoggedin(false)}>Log Out</Button>

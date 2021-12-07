@@ -1,22 +1,22 @@
 import React from "react";
 import Button from "./button/Button";
 
-const FormCreateRecipe = ({ addRecipe }) => {
+const FormCreateMovie = ({ addMovie }) => {
   const [values, setValues] = React.useState({
-    title: "Recipe Title",
-    image: "toast.png",
-    description: "Description of the recipe",
+    title: "Movie Title",
+    image: "poster_matrix_resurrection.jpg",
+    description: "Description of the movie",
   });
 
-  const createRecipe = (event) => {
+  const createMovie = (event) => {
     event.preventDefault();
-    const recipe = {
+    const movie = {
       title: values.title,
       image: values.image,
       description: values.description,
       year: values.year,
     };
-    addRecipe(recipe);
+    addMovie(movie);
   };
 
   const handleInputChange = (event) => {
@@ -27,40 +27,40 @@ const FormCreateRecipe = ({ addRecipe }) => {
 
   return (
     <div>
-      <h3>Add Recipe Form</h3>
-      <form onSubmit={createRecipe}>
+      <h3>Add Movie Form</h3>
+      <form onSubmit={createMovie}>
         <input
           type="text"
-          placeholder="Recipe title"
+          placeholder="Movie title"
           value={values.title}
           name="title"
           onChange={handleInputChange}
         />
         <input
           type="text"
-          placeholder="Recipe image"
+          placeholder="Movie image"
           value={values.image}
           name="image"
           onChange={handleInputChange}
         />
         <textarea
-          placeholder="Recipe description"
+          placeholder="Movie description"
           name="description"
           onChange={handleInputChange}
           value={values.description}
         />
         <input
           type="text"
-          placeholder="Recipe year"
+          placeholder="Movie year"
           value={values.year}
           name="year"
           onChange={handleInputChange}
         />
 
-        <Button type="submit">Add Recipe</Button>
+        <Button type="submit">Add Movie</Button>
       </form>
     </div>
   );
 };
 
-export default FormCreateRecipe;
+export default FormCreateMovie;
