@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import { MovieDetailContainer } from "./styles";
 
 function MovieDetail(props) {
   const { movieId } = useParams();
@@ -7,12 +8,12 @@ function MovieDetail(props) {
   const { posterImage, title, description } = { ...currMovie[0] };
 
   return (
-    <div>
+    <MovieDetailContainer>
       <img src={`/img/${posterImage}`} alt={title} />
       <h1>{title}</h1>
       <p>{description}</p>
       <Link to="/">Home</Link>
-    </div>
+    </MovieDetailContainer>
   );
 }
 

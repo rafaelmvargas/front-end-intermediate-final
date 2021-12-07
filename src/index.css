@@ -1,14 +1,20 @@
 :root {
   --corp-blue: #007eb6;
   --corp-btn: #03628d;
+  --corp-bg-dark: #131516;
+  --corp-bg-main: #212527;
+  --corp-bg-card: #0E1223;
+  /* --movie-bg: #141a32; */
+  /* --movie-bg: #4c4c4c; */
+  --movie-bg: #131516;
 }
 
 body {
   max-width: 940px;
   margin: 0 auto;
   font-family: sans-serif;
-  color: #333;
-  background-color: #eee;
+  color: rgb(181, 179, 176);
+  background-color: var(--corp-bg-dark);
 }
 
 a {
@@ -17,7 +23,7 @@ a {
 
 main {
   padding: 1rem;
-  background-color: #fff;
+  background-color: var(--corp-bg-main);
 }
 
 summary {
@@ -37,6 +43,8 @@ textarea {
   width: 90%;
   padding: 0.5rem;
   font-family: inherit;
+  background: #131516;
+  color: #fff;
 }
 
 label {
