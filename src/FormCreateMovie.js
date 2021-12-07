@@ -4,7 +4,7 @@ import Button from "./button/Button";
 const FormCreateMovie = ({ addMovie }) => {
   const [values, setValues] = React.useState({
     title: "Movie Title",
-    image: "poster_matrix_resurrection.jpg",
+    posterImage: "poster_matrix_resurrection.jpg",
     description: "Description of the movie",
   });
 
@@ -12,7 +12,7 @@ const FormCreateMovie = ({ addMovie }) => {
     event.preventDefault();
     const movie = {
       title: values.title,
-      image: values.image,
+      posterImage: values.posterImage,
       description: values.description,
       releaseDate: values.releaseDate,
     };
@@ -39,8 +39,8 @@ const FormCreateMovie = ({ addMovie }) => {
         <input
           type="text"
           placeholder="Movie image"
-          value={values.image}
-          name="image"
+          value={values.posterImage}
+          name="posterImage"
           onChange={handleInputChange}
         />
         <textarea

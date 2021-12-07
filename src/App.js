@@ -9,7 +9,7 @@ import useFetch from "./hooks/useFetch";
 import useToggle from "./hooks/useToggle";
 
 function App() {
-  const [movies, setMovies] = React.useState([]);
+  const [movies, setMovies] = useState([]);
   const [loggedin, setLoggedin] = useToggle(true);
   const [loading, setLoading] = useToggle(true);
   const [error, setError] = React.useState("");
@@ -49,17 +49,10 @@ function App() {
           <Route
             path="/"
             element={
-              <Movies
-                movies={movies}
-                loggedin={loggedin}
-                addMovie={addMovie}
-              />
+              <Movies movies={movies} loggedin={loggedin} addMovie={addMovie} />
             }
           />
-          <Route
-            path="/:movieId"
-            element={<MovieDetail movies={movies} />}
-          />
+          <Route path="/:movieId" element={<MovieDetail movies={movies} />} />
         </Routes>
       </BrowserRouter>
     </main>
