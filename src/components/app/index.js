@@ -35,7 +35,8 @@ function App() {
 
   const updateMovie = (movie) => {
     // Update movie by putting it to the server
-    put("/api/movies", movie).then((data) => {
+    console.log(movie);
+    put(`/api/movies/${movie._id}`, movie).then((data) => {
       setMovies(movies.map((m) => (m._id === data._id ? data : m)));
     });
   };

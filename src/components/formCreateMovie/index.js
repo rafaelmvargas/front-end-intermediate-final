@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../button/Button";
 
-const FormCreateMovie = ({ addMovie, updateMovie, currMovie={} }) => {
+const FormCreateMovie = ({ addMovie, updateMovie, currMovie = {} }) => {
   console.log({ currMovie });
 
   const [values, setValues] = React.useState({
@@ -14,12 +14,13 @@ const FormCreateMovie = ({ addMovie, updateMovie, currMovie={} }) => {
   const createMovie = (event) => {
     event.preventDefault();
     const movie = {
+      ...currMovie,
       title: values.title,
       posterImage: values.posterImage,
       description: values.description,
       releaseDate: values.releaseDate,
     };
-    if (addMovie != null) {
+    if (addMovie !== undefined) {
       addMovie(movie);
     } else {
       updateMovie(movie);
@@ -45,7 +46,7 @@ const FormCreateMovie = ({ addMovie, updateMovie, currMovie={} }) => {
         />
         <input
           type="text"
-          placeholder="Movie image"
+          placeholder="Movie Poster Image"
           value={values.posterImage}
           name="posterImage"
           onChange={handleInputChange}
